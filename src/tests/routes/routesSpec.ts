@@ -7,7 +7,8 @@ app.use('/api', routes)
 
 describe('Endpoint Suite', () => {
   it('should return a list of possible images when no query parameters are provided', () => {
-    const message = 'You need to provide a `name` in the query'
+    const message =
+      'You need to provide a `name`, `width`, or `height` in the query. Options for `name` are below. `width` and `height` are numeric. For example, /api/image?name=fjord&width=800&height=600'
     const availableImages = [
       'encenadaport',
       'fjord',
