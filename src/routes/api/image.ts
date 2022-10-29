@@ -12,11 +12,6 @@ import {
 
 const image = express.Router()
 
-// Three paths
-// 1: /image (done)
-// 2: /image?name= (done)
-// 3: /image?name=&width=&height= (if height or width alone - assumes square)
-
 image.get('/', async (req, res) => {
   if (!isValidQuery(req)) {
     const imageList = await getImageList()

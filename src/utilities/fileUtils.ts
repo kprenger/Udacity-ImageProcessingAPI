@@ -16,8 +16,15 @@ export async function doesAssetExist(fileName: string): Promise<boolean> {
 
 export async function getImageList(): Promise<Array<string>> {
   try {
-    return (await fsPromises.readdir(assetsDir)).map(
-      (imageName) => imageName.split('.')[0]
+    return (await fsPromises.readdir(assetsDir)).reduce(
+      (finalList: string[], imageName) => {
+        if (imageName !== 'thumbnails') {
+          finalList.push(imageName.split('.')[0])
+        }
+
+        return finalList
+      },
+      []
     )
   } catch (error) {
     console.log(error)

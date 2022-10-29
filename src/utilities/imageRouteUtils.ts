@@ -37,10 +37,4 @@ export function getImagePathFromRequest(req: express.Request): string {
   }
 
   return filePath
-
-  // if (await checkForFile(fileName)) {
-  //   return fileName
-  // } else {
-  //   return getImageList()
-  // }
 }

@@ -1,6 +1,9 @@
 # Project
 src/assets/thumbnails
 
+# Mac
+.DS_Store
+
 # Logs
 logs
 *.log
