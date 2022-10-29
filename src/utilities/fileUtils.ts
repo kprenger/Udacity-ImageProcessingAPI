@@ -18,7 +18,7 @@ export async function getImageList(): Promise<Array<string>> {
   try {
     return (await fsPromises.readdir(assetsDir)).reduce(
       (finalList: string[], imageName) => {
-        if (imageName !== 'thumbnails') {
+        if (imageName.split('.').at(-1) === 'jpeg') {
           finalList.push(imageName.split('.')[0])
         }
 

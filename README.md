@@ -9,6 +9,9 @@ This project was created as part of the Udacity Full Stack JavaScript Developer 
 3. Run `npm start` to build the code and start the server.
 
 - Run tests with `npm test`.
+- Compile TypeScript with `npm run build`.
+- Lint with `npm run eslint`.
+- Format with `npm run prettier`.
 - Start the server in developer mode with `npm dev-start`. This will start the server with [nodemon](https://nodemon.io/), so that saving changes to any files will restart the server with the new changes included.
 
 ## Implementation
@@ -33,10 +36,11 @@ The image assets are stored in the `src/assets` folder. When requested for a res
 
 ## Packages Used
 
+- [Express](https://expressjs.com/)
+- [Sharp](https://sharp.pixelplumbing.com/)
 - [TypeScript](https://www.typescriptlang.org/)
+- [Nodemon](https://nodemon.io/)
 - [ESLint](https://eslint.org/)
 - [Prettier](https://prettier.io/)
-- [Express](https://expressjs.com/)
 - [Jasmine](https://jasmine.github.io/)
-- [Nodemon](https://nodemon.io/)
-- [Sharp](https://sharp.pixelplumbing.com/)
+- [SuperTest](https://github.com/visionmedia/supertest)

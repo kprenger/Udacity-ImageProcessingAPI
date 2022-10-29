@@ -6,7 +6,7 @@ const port = 3000
 
 app.use('/api', routes)
 app.get('*', (req, res) => {
-  res.status(400).send('Endpoint does not exist')
+  res.status(400).send({ message: 'Endpoint does not exist' })
 })
 
 app.listen(port, () => {

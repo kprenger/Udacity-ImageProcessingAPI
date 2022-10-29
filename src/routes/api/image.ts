@@ -16,7 +16,8 @@ image.get('/', async (req, res) => {
   if (!isValidQuery(req)) {
     const imageList = await getImageList()
     const responseBody = {
-      message: 'You need to provide a `name` in the query',
+      message:
+        'You need to provide a `name`, `width`, or `height` in the query. Options for `name` are below. `width` and `height` are numeric. For example, /api/image?name=fjord&width=800&height=600',
       availableImages: imageList
     }
 
@@ -24,11 +25,18 @@ image.get('/', async (req, res) => {
   } else {
     const imagePath = getImagePathFromRequest(req)
 
-    if (await doesAssetExist(imagePath)) {
-      res.sendFile(getFullAssetPath(imagePath))
-    } else {
-      await createAsset(imagePath)
-      res.sendFile(getFullAssetPath(imagePath))
+    try {
+      if (await doesAssetExist(imagePath)) {
+        res.sendFile(getFullAssetPath(imagePath))
+      } else {
+        await createAsset(imagePath)
+        res.sendFile(getFullAssetPath(imagePath))
+      }
+    } catch (error) {
+      res.status(500).send({
+        message:
+          'There was an error processing your request. Please try again later.'
+      })
     }
   }
 })
