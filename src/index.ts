@@ -5,7 +5,7 @@ const app = express()
 const port = 3000
 
 app.use('/api', routes)
-app.get('*', (req, res) => {
+app.get('*', (req: express.Request, res: express.Response): void => {
   res.status(400).send({ message: 'Endpoint does not exist' })
 })
 
